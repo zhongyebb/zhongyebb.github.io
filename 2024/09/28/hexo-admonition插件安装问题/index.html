@@ -23,12 +23,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="hexo admonition安装过程中遇到的问题">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhongyebb/picture-gallery/main/blogs/pictures/20240928172150.png">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/2764.png?v8">
 <meta property="article:published_time" content="2024-09-28T09:09:44.000Z">
-<meta property="article:modified_time" content="2024-09-28T09:31:58.411Z">
+<meta property="article:modified_time" content="2024-09-28T09:46:27.683Z">
 <meta property="article:author" content="Wang Die">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/zhongyebb/picture-gallery/main/blogs/pictures/20240928172150.png">
+<meta name="twitter:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8">
   
   
   
@@ -227,7 +229,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          405 words
+          508 words
         
       </span>
     
@@ -238,7 +240,7 @@
         
         
         
-          4 mins
+          5 mins
         
       </span>
     
@@ -280,7 +282,8 @@
             
               <div class="markdown-body">
                 
-                <h2 id="镜像源失效"><a href="#镜像源失效" class="headerlink" title="镜像源失效"></a>镜像源失效</h2><p><code>npm ERR! code ECONNRESET //等一长串error</code></p>
+                <p>耗时两个小时解决，主要花在了找资料和理解上<span class="github-emoji"><span>😢</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span><br>大多数人用的是Mkdocs框架，包括用vscode预览时也是，但本人用的是Hexo框架，这就导致了一开始找到的资料都不太有用。且对于CSS文件了解不多，最后是在官方手册找到的解决方法。</p>
+<h2 id="镜像源失效"><a href="#镜像源失效" class="headerlink" title="镜像源失效"></a>镜像源失效</h2><p><code>npm ERR! code ECONNRESET //等一长串error</code></p>
 <p>要解决该问题，需要重置镜像源</p>
 <figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">npm config set proxy null 重置代理<br>npm config set registry https://registry.npmmirror.com 更换源(仍然报错expired的话继续换源，直接搜索hexo镜像源即可)<br></code></pre></td></tr></tbody></table></figure>
 
@@ -289,7 +292,7 @@
 <figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><code class="hljs text">.admonition {<br>  margin: 1.5625em 0;<br>  padding: .6rem;<br>  overflow: hidden;<br>  font-size: .64rem;<br>  page-break-inside: avoid;<br>  border-left: .3rem solid #42b983;<br>  border-radius: .3rem;<br>  box-shadow: 0 0.1rem 0.4rem rgba(0,0,0,.05), 0 0 0.05rem rgba(0,0,0,.1);<br>  background-color: #fafafa;<br>}<br><br>p.admonition-title {<br>  position: relative;<br>  margin: -.6rem -.6rem .8em -.6rem !important;<br>  padding: .4rem .6rem .4rem 2.5rem;<br>  font-weight: 700;<br>  background-color:rgba(66, 185, 131, .1);<br>}<br><br>.admonition-title::before {<br>  position: absolute;<br>  top: .9rem;<br>  left: 1rem;<br>  width: 12px;<br>  height: 12px;<br>  background-color: #42b983;<br>  border-radius: 50%;<br>  content: ' ';<br>}<br><br>.info&gt;.admonition-title, .todo&gt;.admonition-title {<br>  background-color: rgba(0,184,212,.1);<br>}<br><br>.warning&gt;.admonition-title, .attention&gt;.admonition-title, .caution&gt;.admonition-title {<br>  background-color: rgba(255,145,0,.1);<br>}<br><br>.failure&gt;.admonition-title, .missing&gt;.admonition-title, .fail&gt;.admonition-title, .error&gt;.admonition-title {<br>  background-color: rgba(255,82,82,.1);<br>}<br><br>.admonition.info, .admonition.todo {<br>  border-color: #00b8d4;<br>}<br><br>.admonition.warning, .admonition.attention, .admonition.caution {<br>  border-color: #ff9100;<br>}<br><br>.admonition.failure, .admonition.missing, .admonition.fail, .admonition.error {<br>  border-color: #ff5252;<br>}<br><br>.info&gt;.admonition-title::before, .todo&gt;.admonition-title::before {<br>  background-color: #00b8d4;<br>  border-radius: 50%;<br>}<br><br>.warning&gt;.admonition-title::before, .attention&gt;.admonition-title::before, .caution&gt;.admonition-title::before {<br>  background-color: #ff9100;<br>  border-radius: 50%;<br>}<br><br>.failure&gt;.admonition-title::before,.missing&gt;.admonition-title::before,.fail&gt;.admonition-title::before,.error&gt;.admonition-title::before{<br>  background-color: #ff5252;;<br>  border-radius: 50%;<br>}<br><br>.admonition&gt;:last-child {<br>  margin-bottom: 0 !important;<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <p>然后修改_config.fluid.yml文件<br><code>custom_css: /css/my.css</code></p>
-<p>最后重新上传即可</p>
+<p>最后重新上传即可<br>有用的话请点个<span class="github-emoji"><span>❤</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png?v8" srcset="/img/loading.gif" lazyload aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>，非常感谢！</p>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_16785561/article/details/140782167">安装报错</a><br><a target="_blank" rel="noopener" href="https://github.com/lxl80/hexo-admonition?tab=readme-ov-file">hexo-admonition插件</a></p>
 
                 
@@ -373,25 +376,6 @@
   
     <article id="comments" lazyload>
       
-  <div class="disqus" style="width:100%">
-    <div id="disqus_thread"></div>
-    
-      <script type="text/javascript">
-        var disqus_config = function() {
-          this.page.url = 'http://example.com/2024/09/28/hexo-admonition%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98/';
-          this.page.identifier = '/2024/09/28/hexo-admonition%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98/';
-        };
-        Fluid.utils.loadComments('#disqus_thread', function() {
-          var d = document, s = d.createElement('script');
-          s.src = '//' + 'fluid' + '.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', new Date());
-          (d.head || d.body).appendChild(s);
-        });
-      </script>
-    
-    <noscript>Please enable JavaScript to view the comments</noscript>
-  </div>
-
 
     </article>
   
