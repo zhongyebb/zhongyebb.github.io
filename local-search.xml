@@ -4,11 +4,11 @@
   
   
   <entry>
-    <title>解决用leancloud给fluid增加访问量功能时无显示的问题</title>
+    <title>解决用leancloud给fluid增加访问量和评论功能时无法加载和显示的问题</title>
     <link href="/2024/09/29/%E5%A2%9E%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%87%8F%E5%8A%9F%E8%83%BD-md/"/>
     <url>/2024/09/29/%E5%A2%9E%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%87%8F%E5%8A%9F%E8%83%BD-md/</url>
     
-    <content type="html"><![CDATA[<p>2022年LeanCloud 国际版不再为来自中国大陆的 IP 提供服务，基于 LeanCloud 的站点统计因此失效，使用LeanCloud统计时无显示，但使用梯子后是正常显示的，因此改用LeanCloud国内版即可。</p><p>剩下的操作可以直接参考<a href="http://minghuijia.cn/2022/03/14/Hexo-fluid%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E7%BB%9F%E8%AE%A1%E5%8D%9A%E5%AE%A2%E9%98%85%E8%AF%BB%E9%87%8F/">链接</a></p><p>So easy！但是花了我一个晚上加一个下午<span class="github-emoji"><span>😢</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>]]></content>
+    <content type="html"><![CDATA[<p>2022年LeanCloud 国际版不再为来自中国大陆的 IP 提供服务，基于 LeanCloud 的站点统计因此失效，使用LeanCloud统计时无显示，但使用梯子后是正常显示的，因此改用LeanCloud国内版即可。</p><p>剩下的操作可以直接参考<a href="http://minghuijia.cn/2022/03/14/Hexo-fluid%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E7%BB%9F%E8%AE%A1%E5%8D%9A%E5%AE%A2%E9%98%85%E8%AF%BB%E9%87%8F/">链接</a></p><p>补充：修改_config.fluid.yml</p><figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text"># REST API 服务器地址，国际版不填<br># Only the Chinese mainland users need to set<br>server_url: //将LeanCloud中的REST API复制过来<br></code></pre></td></tr></tbody></table></figure><p>So easy！但是花了我一个晚上加一个下午<span class="github-emoji"><span>😢</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p><p>更新：发现评论功能不挂梯子还是用不了</p>]]></content>
     
     
     
