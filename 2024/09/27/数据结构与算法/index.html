@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/zhongyebb/picture-gallery/main/blogs/pictures/20241002160101.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhongyebb/picture-gallery/main/blogs/pictures/20241003191125.png">
 <meta property="article:published_time" content="2024-09-27T08:06:27.000Z">
-<meta property="article:modified_time" content="2024-10-03T12:53:49.286Z">
+<meta property="article:modified_time" content="2024-10-03T12:57:56.561Z">
 <meta property="article:author" content="Wang Die">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/zhongyebb/picture-gallery/main/blogs/pictures/20240928110706.png">
@@ -522,7 +522,7 @@ data中存放的都是数组的首地址。</li>
 <h5 id="常用预定义常量的补充"><a href="#常用预定义常量的补充" class="headerlink" title="常用预定义常量的补充"></a>常用预定义常量的补充</h5><blockquote>
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c">&gt;<span class="hljs-meta">#<span class="hljs-keyword">define</span> TRUE 1</span><br>&gt;<span class="hljs-meta">#<span class="hljs-keyword">define</span> FALSE 0</span><br>&gt;<span class="hljs-meta">#<span class="hljs-keyword">define</span> OK 1</span><br>&gt;<span class="hljs-meta">#<span class="hljs-keyword">define</span> ERROR 0</span><br>&gt;<span class="hljs-meta">#<span class="hljs-keyword">define</span> INFEASIBLE -1 <span class="hljs-comment">//不可行的</span></span><br>&gt;<span class="hljs-meta">#<span class="hljs-keyword">define</span> OVERFLOW -2</span><br><br>&gt;<span class="hljs-keyword">typedef</span> <span class="hljs-type">int</span> Status <span class="hljs-comment">//值是函数结果状态代码，不一定是int，与返回值有关</span><br>&gt;<span class="hljs-keyword">typedef</span> <span class="hljs-type">char</span> ELemType <span class="hljs-comment">//不一定是char，取决于数据域类型</span><br></code></pre></td></tr></tbody></table></figure>
 </blockquote>
-<h5 id="线性表-基本操作的代码实现"><a href="#线性表-基本操作的代码实现" class="headerlink" title="(线性表)基本操作的代码实现"></a>(线性表)基本操作的代码实现</h5><p>PS：<em>王卓老师这里讲了一些基本操作的代码实现，讲的很具体。因为已经学过C++我就直接忽略了，有需要的可以去看网课P17-220，这里只补充一些知识点</em></p>
+<h5 id="线性表-基本操作的代码实现"><a href="#线性表-基本操作的代码实现" class="headerlink" title="(线性表)基本操作的代码实现"></a>(线性表)基本操作的代码实现</h5><p>PS：<em>王卓老师这里讲了一些基本操作的代码实现，讲的很具体。因为已经学过C++我就直接忽略了，有需要的可以去看网课P17-220，这里只补充一些知识点</em>  </p>
 <ul>
 <li>**平均查找长度(ASL)**：Locate函数的平均时间复杂度，即需要与给定值进行比较的次数的期望值。<code>ASL=Σ^n^~i=1~P~i~*C~i~</code>，其中P<del>i</del>为第i个元素被查找的概率，C<del>i</del>为找到第i个记录需比较的次数。</li>
 <li>插入元素时要保证数组连续，因此要从最后一个开始，一个接一个往后移。还要确保不会溢出。</li>
@@ -561,7 +561,7 @@ data中存放的都是数组的首地址。</li>
 <li>链表的销毁要依次释放，包括头指针和头结点。</li>
 <li>链表依然存在，即头指针和头结点保留，但链表中无元素。</li>
 </ul>
-<p>PS：<em>P24-34(除P32)，都在将代码实现，学过的可以直接拉到每节最后复习一下代码</em></p>
+<p>PS：<em>P24-34(除P32)，都在将代码实现，学过的可以直接拉到每节最后复习一下代码</em>  </p>
 <div class="admonition note"><p class="admonition-title">note</p><p>链表的查找时间复杂度为O(n)
 插入和删除的时间复杂度为O(1)，但由于要从头开始查找结点，因此时间复杂度为O(n)</p>
 </div>
