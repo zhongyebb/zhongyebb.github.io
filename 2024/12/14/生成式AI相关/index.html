@@ -16,22 +16,22 @@
   <meta name="author" content="Wang Die">
   <meta name="keywords" content="">
   
-    <meta name="description" content="常用指令： hexo new “”：创建新文本 hexo g 生成 hexo d 推送   加粗问题：结尾**符号之前有标点符号时，**之后要加一个空格 换行问题：正常文本中直接回车就会换行，但在admonition中需要用&lt;br&gt;换行。待解决··· 时间问题：可以通过直接修改文章开头date后面是时间来修改文章发布的次序">
+    <meta name="description" content="pre-train预训练：利用网上爬取的大量资料使模型认识世界 instruction Fine-tuning微调：利用人类标注过的资料进行训练，使之能理解并正确回答 一般会以预训练得到的为初始参数，再用人工资料进行微调，因为人工成本高且获取资料有限 Adapter：在微调时不改变预训练参数，而是在后面直接加上未知项，可以使训练得到的参数与初始参数更接近，同时减小计算量   reinforcem">
 <meta property="og:type" content="article">
-<meta property="og:title" content="markdown问题汇总">
-<meta property="og:url" content="http://example.com/2024/10/03/markdown%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:title" content="生成式AI相关">
+<meta property="og:url" content="http://example.com/2024/12/14/%E7%94%9F%E6%88%90%E5%BC%8FAI%E7%9B%B8%E5%85%B3/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="常用指令： hexo new “”：创建新文本 hexo g 生成 hexo d 推送   加粗问题：结尾**符号之前有标点符号时，**之后要加一个空格 换行问题：正常文本中直接回车就会换行，但在admonition中需要用&lt;br&gt;换行。待解决··· 时间问题：可以通过直接修改文章开头date后面是时间来修改文章发布的次序">
+<meta property="og:description" content="pre-train预训练：利用网上爬取的大量资料使模型认识世界 instruction Fine-tuning微调：利用人类标注过的资料进行训练，使之能理解并正确回答 一般会以预训练得到的为初始参数，再用人工资料进行微调，因为人工成本高且获取资料有限 Adapter：在微调时不改变预训练参数，而是在后面直接加上未知项，可以使训练得到的参数与初始参数更接近，同时减小计算量   reinforcem">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-10-03T13:14:16.000Z">
-<meta property="article:modified_time" content="2025-01-21T11:14:01.392Z">
+<meta property="article:published_time" content="2024-12-14T07:32:56.000Z">
+<meta property="article:modified_time" content="2025-01-21T10:43:16.318Z">
 <meta property="article:author" content="Wang Die">
-<meta property="article:tag" content="problem">
+<meta property="article:tag" content="AI">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>markdown问题汇总 - Hexo</title>
+  <title>生成式AI相关 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -232,7 +232,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">markdown问题汇总</span>
+            <span id="subtitle">生成式AI相关</span>
           
         </div>
 
@@ -243,8 +243,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-10-03 21:14" pubdate>
-          October 3, 2024 pm
+        <time datetime="2024-12-14 15:32" pubdate>
+          December 14, 2024 pm
         </time>
       </span>
     
@@ -255,7 +255,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          103 words
+          277 words
         
       </span>
     
@@ -266,7 +266,7 @@
         
         
         
-          1 mins
+          3 mins
         
       </span>
     
@@ -311,21 +311,30 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">markdown问题汇总</h1>
+            <h1 id="seo-header">生成式AI相关</h1>
             
             
               <div class="markdown-body">
                 
                 <ul>
-<li>常用指令：<ul>
-<li>hexo new “”：创建新文本</li>
-<li>hexo g 生成</li>
-<li>hexo d 推送</li>
+<li>pre-train预训练：利用网上爬取的大量资料使模型认识世界</li>
+<li>instruction Fine-tuning微调：利用人类标注过的资料进行训练，使之能理解并正确回答</li>
+<li>一般会以预训练得到的为初始参数，再用人工资料进行微调，因为人工成本高且获取资料有限<ul>
+<li>Adapter：在微调时不改变预训练参数，而是在后面直接加上未知项，可以使训练得到的参数与初始参数更接近，同时减小计算量</li>
 </ul>
 </li>
-<li>加粗问题：结尾**符号之前有标点符号时，**之后要加一个空格</li>
-<li>换行问题：正常文本中直接回车就会换行，但在admonition中需要用&lt;br&gt;换行。待解决···</li>
-<li>时间问题：可以通过直接修改文章开头date后面是时间来修改文章发布的次序</li>
+<li>reinforcement learning from human feedback(RLHF)：由人类对答案进行评分来促使模型微调<ul>
+<li>reward model回馈模型：对输出进行评分</li>
+</ul>
+</li>
+<li>AI agent：让AI能执行多步骤的复杂任务</li>
+<li>image captioning：图像转换为描述性文字</li>
+<li>attention机制：考虑上下文<ul>
+<li>casual attention：在计算每一个token的attention weight时，一般只考虑前文不考虑后文</li>
+<li>multi-head attention：考虑不同关联性给出不同的模组，因此对于一个输入，attention会给出多组输出</li>
+<li>feed forward：将上述得到的多组输出综合考虑，得到一组输出</li>
+</ul>
+</li>
 </ul>
 
                 
@@ -345,7 +354,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%97%A5%E5%BF%97/" class="category-chain-item">日志</a>
+  <a href="/categories/AI/" class="category-chain-item">AI</a>
   
   
 
@@ -360,7 +369,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/problem/" class="print-no-link">#problem</a>
+        <a href="/tags/AI/" class="print-no-link">#AI</a>
       
     </div>
   
@@ -372,8 +381,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>markdown问题汇总</div>
-      <div>http://example.com/2024/10/03/markdown问题汇总/</div>
+      <div>生成式AI相关</div>
+      <div>http://example.com/2024/12/14/生成式AI相关/</div>
     </div>
     <div class="license-meta">
       
@@ -385,7 +394,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>October 3, 2024</div>
+          <div>December 14, 2024</div>
         </div>
       
       
@@ -417,9 +426,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/10/05/%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/" title="刷题记录">
+                      <a href="/2025/01/03/%E5%BC%80%E9%A2%98%E6%8A%A5%E5%91%8A/" title="开题报告">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">刷题记录</span>
+                        <span class="hidden-mobile">开题报告</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -427,8 +436,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/09/29/%E5%A2%9E%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%87%8F%E5%8A%9F%E8%83%BD-md/" title="解决用leancloud给fluid增加访问量和评论功能时无法加载和显示的问题">
-                        <span class="hidden-mobile">解决用leancloud给fluid增加访问量和评论功能时无法加载和显示的问题</span>
+                      <a href="/2024/11/30/pytorch%E5%AE%89%E8%A3%85%E4%B8%ADis-available-%E4%B8%BAFalse%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" title="pytorch安装及anaconda环境配置问题">
+                        <span class="hidden-mobile">pytorch安装及anaconda环境配置问题</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

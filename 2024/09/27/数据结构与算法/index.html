@@ -27,8 +27,9 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/zhongyebb/picture-gallery/main/blogs/pictures/20241002160101.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/zhongyebb/picture-gallery/main/blogs/pictures/20241003191125.png">
 <meta property="article:published_time" content="2024-09-27T10:06:27.000Z">
-<meta property="article:modified_time" content="2024-10-03T13:22:25.231Z">
+<meta property="article:modified_time" content="2025-01-21T10:44:21.451Z">
 <meta property="article:author" content="Wang Die">
+<meta property="article:tag" content="CS八股">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/zhongyebb/picture-gallery/main/blogs/pictures/20240928110706.png">
   
@@ -258,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.2k words
+          6.4k words
         
       </span>
     
@@ -269,7 +270,7 @@
         
         
         
-          35 mins
+          54 mins
         
       </span>
     
@@ -474,14 +475,19 @@
 <li>若地址不连续，即中间存在空的存储单元，则不是一个线性表顺序存储结构。</li>
 <li>优点：<ul>
 <li>随机存取，即每一个元素的位置都能直接计算得到，且运算的时间复杂度为O(1)，与储存的元素个数无关。</li>
-<li>存储密度大(节点本身所占存储量/节点结构所占存储量)</li>
+<li>存储密度大，等于1。</li>
 </ul>
 </li>
 <li>缺点：<ul>
-<li>无法随机存储，增删时都需要移动大量元素</li>
-<li>静态存储，无法自由扩充元素个数，浪费存储空间</li>
+<li>无法随机存储，增删时都需要移动大量元素，时间复杂度为O(n)。</li>
+<li>静态存储，无法自由扩充元素个数，会导致限制或溢出。</li>
 </ul>
 </li>
+</ul>
+<div class="admonition note"><p class="admonition-title">note</p><p>存储密度 = 结点数据内容占用的空间/结点占用的空间总量</p>
+</div>
+
+<ul>
 <li>线性表的数据类型：线性表的表长是可变的，但数组的长度是不可变的，因此需要用一个变量表示顺序表的长度属性，如下</li>
 </ul>
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c">define LIST_INIT_SIZE <span class="hljs-number">100</span> <span class="hljs-comment">//线性表存储空间的初始分配量，即可能达到的最大长度</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> {</span><br>  ElemType elem[LIST_INIT_SIZE]; <span class="hljs-comment">//ElemType为元素类型</span><br>  <span class="hljs-type">int</span> length; <span class="hljs-comment">//当前长度</span><br>}SqList<br></code></pre></td></tr></tbody></table></figure>
@@ -548,18 +554,31 @@ data中存放的都是数组的首地址。</li>
 <li><strong>头结点</strong>：在首元结点之前附设的一个结点，并不统计在表长内。数据域为空或存放表长等信息，指针域指向首元结点。有以下优点：<ul>
 <li>便于首元结点的处理。首元结点的地址也是保存在指针域中，则所有结点的操作都一样。</li>
 <li>处理空表和非空表时操作一样。</li>
-<li>优点：方便增删数据。</li>
-<li>缺点：顺序存取，查找元素需要依次扫描。</li>
 </ul>
 </li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/zhongyebb/picture-gallery/main/blogs/pictures/20241003191125.png" srcset="/img/loading.gif" lazyload alt="20241003191125" title="头指针、首元结点和头结点"></p>
 <ul>
-<li>链表的数据类型。以单链表为例</li>
+<li><p>优点：</p>
+<ul>
+<li>方便增删数据，不需要移动数据。</li>
+<li>动态分配存储空间，不会闲置或溢出。</li>
+</ul>
+</li>
+<li><p>缺点：</p>
+<ul>
+<li>顺序存取，查找元素需要依次扫描，查找的时间复杂度为O(n)。</li>
+<li>存储密度小，每个结点的指针域需要额外占用存储空间。</li>
+</ul>
+</li>
+<li><p>适用于长度变化较大，需要频繁进行插入或删除的场景。</p>
+</li>
+<li><p>链表的数据类型。以单链表为例</p>
+</li>
 </ul>
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Lnode</span>{</span><br>  ElemType data; <span class="hljs-comment">//一般先将所有数据域封装为一个结构体ElemType</span><br>  <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Lnode</span> *<span class="hljs-title">next</span>;</span><br>}Lnode, *LinkList; <span class="hljs-comment">//LinkList为指向结构体Lnode的指针类型，即Lnode *p等价于LinkList p。</span><br></code></pre></td></tr></tbody></table></figure>
 
-<h5 id="链表-基本操作的代码实现"><a href="#链表-基本操作的代码实现" class="headerlink" title="(链表)基本操作的代码实现"></a>(链表)基本操作的代码实现</h5><ul>
+<h5 id="单链表-基本操作的代码实现"><a href="#单链表-基本操作的代码实现" class="headerlink" title="(单链表)基本操作的代码实现"></a>(单链表)基本操作的代码实现</h5><ul>
 <li>链表的销毁要依次释放，包括头指针和头结点。</li>
 <li>链表依然存在，即头指针和头结点保留，但链表中无元素。</li>
 </ul>
@@ -578,6 +597,118 @@ data中存放的都是数组的首地址。</li>
 <strong>直观点说，头结点不是数据元素，不存数据；尾结点是数据元素，存数据</strong>。</p>
 </div>
 
+<h5 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h5><ul>
+<li>循环链表头结点的指针域指向自身。</li>
+<li>循环链表主要用尾指针，再由尾指针找到头指针，则查找尾结点的时间复杂度由O(n)变为O(1)。</li>
+</ul>
+<h5 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h5><ul>
+<li>在单链表的每个结点里再增加一个指向其直接前趋的指针域。</li>
+<li>首元结点的前趋为头结点，头结点的前趋为空，尾元结点的后驱为空。</li>
+<li>空表则头结点的前趋和后继都为空。</li>
+</ul>
+<h5 id="双向循环链表"><a href="#双向循环链表" class="headerlink" title="双向循环链表"></a>双向循环链表</h5><ul>
+<li>让头结点的前趋指向链表的尾元结点，尾元结点的后继指向头结点。空表的头结点的前趋和后继都指向自身。</li>
+<li>具有对称性，即<code>p-&gt;prior-&gt;next=p=p-&gt;next-&gt;prior</code></li>
+</ul>
+<p>PS：<em>P42-P47讲代码，略</em></p>
+<h4 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h4><h5 id="栈的定义和特点"><a href="#栈的定义和特点" class="headerlink" title="栈的定义和特点"></a>栈的定义和特点</h5><ul>
+<li><strong>Stack</strong>，因此一般用S表示。</li>
+<li>操作受限的线性表，与一般线性表仅由运算规则不同——只能在表尾操作。</li>
+<li><strong>后进先出</strong>：最后放进去的最先被拿出来，即LIFO(Last In First Out)结构。</li>
+<li>表尾的a<del>n</del>元素，称为<strong>栈顶Top</strong>。</li>
+<li>表头的a<del>1</del>元素，称为<strong>栈底Base</strong>。</li>
+<li>插入元素称为<strong>入栈(PUSH)</strong> ，删除元素称为<strong>出栈(POP)</strong> 。</li>
+<li>顺序栈和链栈存储均可，顺序栈更常见。</li>
+</ul>
+<h5 id="顺序栈的表示和实现"><a href="#顺序栈的表示和实现" class="headerlink" title="顺序栈的表示和实现"></a>顺序栈的表示和实现</h5><ul>
+<li>上溢：栈满了仍要压入元素，视为错误。</li>
+<li>下溢：栈空了仍要弹出元素，视为问题处理结束标志。</li>
+</ul>
+<h5 id="栈与递归"><a href="#栈与递归" class="headerlink" title="栈与递归"></a>栈与递归</h5><ul>
+<li>若一个对象部分地包含它自己，或用它自己给自己定义，则称这个对象是递归的。</li>
+<li>若一个过程直接地或间接地调用自己，则称这个过程是递归的过程。</li>
+<li>分治法：对于一个较为复杂的问题，能够分解成几个相对简单的且解法相同或类似的子问题来求解。递归即采用了这种方法。有以下必备条件：<ul>
+<li>能将一个问题转变为一个新的问题，而新问题与原问题的解法相同或类同，不同的仅是处理的对象，且这些对象的变化是有规律的。</li>
+<li>可以通过上述转化而使问题简化。</li>
+<li>必须有一个明确的递归出口，或称递归的边界。</li>
+</ul>
+</li>
+<li>递归的调用也是后进先出，数据可以存进<strong>递归工作栈</strong>，即递归程序运行期间使用的数据存储区。</li>
+<li>优点：结构清晰，程序易读。</li>
+<li>缺点：每次调用要生成工作记录 ，保存状态信息，入栈；返回时要出栈，恢复状态信息，时间开销大。</li>
+<li>要提高时间效率，可以采用以下方法：<ul>
+<li>将尾递归、单向递归改写为循环结构for等。</li>
+<li>自用栈来模拟系统的运行时栈。</li>
+</ul>
+</li>
+</ul>
+<h4 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h4><h5 id="队列的定义和特点"><a href="#队列的定义和特点" class="headerlink" title="队列的定义和特点"></a>队列的定义和特点</h5><ul>
+<li><strong>queue</strong>，因此一般用Q表示。</li>
+<li>操作受限的线性表，与一般线性表仅由运算规则不同——只能在表尾和表头操作。</li>
+<li><strong>先进先出</strong>：最先进去的最先出来，队尾进队头出，即FIFO(First In First Out)。</li>
+<li>表尾的a<del>n</del>元素，称为<strong>队尾</strong>。</li>
+<li>表头的a<del>1</del>元素，称为<strong>队头</strong>。</li>
+<li>插入元素称为<strong>入队</strong> ，删除元素称为<strong>出队</strong> 。</li>
+<li>顺序队和链队存储均可，循环顺序队列更常见。</li>
+</ul>
+<h5 id="顺序队列的表示和实现"><a href="#顺序队列的表示和实现" class="headerlink" title="顺序队列的表示和实现"></a>顺序队列的表示和实现</h5><ul>
+<li>非循环结构，存在<strong>假溢出</strong>，即实际有空闲的存储空间，但指针指到后面，前面的存储空间无法访问。</li>
+<li>循环队列，解决假溢出问题。当rear指向MAXQSIZE时，将rear置0，移到一开始。<ul>
+<li>可以加一个count来记录元素个数，用以辅助判断</li>
+<li>或者少用一个元素空间来辅助，此时尾指针+1与头指针重合为队满，尾指针与头指针重合为队空。</li>
+</ul>
+</li>
+<li>求队列长度<code>(rear-front+MAXQSIZE)%MAXQSIZE</code></li>
+</ul>
+<h5 id="链队的表示和实现"><a href="#链队的表示和实现" class="headerlink" title="链队的表示和实现"></a>链队的表示和实现</h5><ul>
+<li>适用于无法估计所用长度的队列。</li>
+</ul>
+<h4 id="串"><a href="#串" class="headerlink" title="串"></a>串</h4><ul>
+<li>内容受限的线性表，即零个或多个任意字符组成的有限序列。</li>
+<li>用<code>s="a1a2……an"</code>表示一个串，其中<em>s</em>为<strong>串名</strong>，<em>a1a2……an</em>为<strong>串值</strong>，<em>n</em>为串长。当n=0时，称该串为<strong>空串</strong>，用Φ表示。</li>
+<li><strong>子串</strong>：一个串中任意个连续字符组成的子序列(含空串)。包含子串的串相应地称为<strong>主串</strong>。</li>
+<li><strong>真子串</strong>：不包含自身的所有子串。</li>
+<li><strong>字符位置</strong>：字符在序列中的序号为该字符在串中的位置。</li>
+<li><strong>子串位置</strong>：子串的第一个字符在主串中的位置。</li>
+<li><strong>空格串</strong>：由一个或多个空格组成的串。</li>
+<li><strong>串相等</strong>：当且仅当两个串的长度相等并且各个对应位置上的字符都相同时，这两个串才是相等的。</li>
+<li>所有的空串都是相等的。</li>
+<li>分顺序串和链串。</li>
+<li>可以在一个结点中存放多个字符来提高存储密度，此时将结点称为块。</li>
+</ul>
+<h5 id="串的模式匹配算法"><a href="#串的模式匹配算法" class="headerlink" title="串的模式匹配算法"></a>串的模式匹配算法</h5><p>确定主串中所含子串(模式串)第一次出现的位置。</p>
+<h6 id="BF算法-Brute-Force"><a href="#BF算法-Brute-Force" class="headerlink" title="BF算法(Brute-Force)"></a>BF算法(Brute-Force)</h6><ul>
+<li>用于Index函数(S,T,pos)，其中S为主串，T为模式串。</li>
+<li>亦称简单匹配算法，采用穷举法的思路。</li>
+<li>用两个变量i和j来分别索引主串和模式串，将i和j所指向元素逐个比较，相同则＋1比较下一个。</li>
+<li>当遇到不相同的字符时，i要回退置这组比较开始时的位置的下一个位置，j则回退置1。因此每次遇到不相同的元素时<code>i = i - j + 2, j = 1</code>，其中<code>j - 1</code>为这组比较已经走过的步数，<em>下标从1开始</em>，而<code>i - (j - 1)</code>则回退到这组比较开始的位置，再+1则来到下一步，再重新开始比较。</li>
+<li>若j指向的字符为空，则匹配成功，此时<code>i - t.length</code>就是匹配字符串出现的位置。</li>
+<li>算法复杂度O(n*m)</li>
+</ul>
+<h5 id="KMP算法-Knuth-Morris-Pratt"><a href="#KMP算法-Knuth-Morris-Pratt" class="headerlink" title="KMP算法(Knuth Morris Pratt)"></a>KMP算法(Knuth Morris Pratt)</h5><p>这里听了王卓老师讲的没弄懂，可以看一下b站一个up讲的<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1AY4y157yL/?spm_id_from=333.337.search-card.all.click&amp;vd_source=b8bffdcb111df593c8c30e8d3791e469">连接</a></p>
+<ul>
+<li>首先处理模式串求出next数组。找到每个字符前面的子串中最大公共前后缀的长度，并记录在next数组中。</li>
+<li>将主串与模式串进行比较，当发生不匹配时，根据next数组中存的值进行回溯，<code>j = next[j]</code>。</li>
+<li>还可以对next数组进行改进，当next[j]所在位置的字符与失配位置字符相等时，此时比较仍然时是不同的，因此可以直接跳转至next[next[j]]，即<code>nextval[j] = next[next[j]]</code></li>
+<li>相比于BF算法提高了时间效率，时间复杂度为O(n+m)。</li>
+</ul>
+<p>求next数组的代码有点难懂，在上面提到的那个视频中最后讲解的就是。</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> <span class="hljs-title function_">GetNext</span><span class="hljs-params">(<span class="hljs-type">char</span> ch[], <span class="hljs-type">int</span> length, <span class="hljs-type">int</span> next[])</span>{<br>  next[<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>; <span class="hljs-comment">//next从1开始存</span><br>  <span class="hljs-type">int</span> i = <span class="hljs-number">1</span>, j = <span class="hljs-number">0</span>; <span class="hljs-comment">//注意这里i代表模式主串中下标位置，j用作索引</span><br>  <span class="hljs-keyword">while</span>(i &lt;= length){<br>    <span class="hljs-keyword">if</span>(j == <span class="hljs-number">0</span> || ch[i] == ch[j]) { <br>    <span class="hljs-comment">//我们已经知道前一个元素的最长匹配后缀的长度了，此时后一个字符与前一个字符的最长前缀的后一个字符相等，</span><br>    <span class="hljs-comment">//那么对于这个字符的最长匹配后缀则在前一个字符最长匹配长度的基础上+1即可。</span><br>      ++i; ++j;<br>      next[i] = j;<br>    }<br>    <span class="hljs-keyword">else</span> j = next[j];<span class="hljs-comment">//若不等则跳转至前一个匹配子串处再比较</span><br>  }<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<div class="admonition note"><p class="admonition-title">note</p><p>next数组从下标1开始存值，即第一个数的下标为1。</p>
+</div>
+
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><ul>
+<li>线性表结构是数组结构的一个特例，而数组结构又是线性表结构的扩展。</li>
+<li>数组的<strong>结构固定</strong>，即定义后维数和维界不再改变。</li>
+<li>数组可以是多维的，但存储数据元素的内存单元地址是一维的。</li>
+<li>一维数组，每个元素的地址为<code>a+i*L</code>，其中a为其实地址，i为元素下标，L为每个元素占用字节数。</li>
+<li>二位数组有两种存储方式：<ul>
+<li>以行序为主序，每一行存完再存下一行，如C、JAVA等</li>
+<li>以列序为主序，每一列存完再存下一列。</li>
+</ul>
+</li>
+</ul>
 
                 
               </div>
@@ -586,6 +717,34 @@ data中存放的都是数组的首地址。</li>
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/CS/" class="category-chain-item">CS</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/CS%E5%85%AB%E8%82%A1/" class="print-no-link">#CS八股</a>
+      
+    </div>
   
 </div>
 
